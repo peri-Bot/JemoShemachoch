@@ -1,11 +1,17 @@
 {
-  "name": "jemoshemachoch",
-  "module": "index.js",
+  "name": "nuxt-app",
+  "private": true,
   "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "dependencies": {
+    "nuxt": "^3.15.4",
+    "vue": "latest",
+    "vue-router": "latest"
   }
 }
