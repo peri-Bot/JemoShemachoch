@@ -1,6 +1,6 @@
 <template>
 	<!-- Navigation -->
-	<nav class="bg-[#182127] bborder-b border-white/10 px-6 py-4 relative">
+	<nav class="bg-[#121521] backdrop-blur-md px-6 py-4  sticky top-0 z-50">
 		<div class="nav-gradient"></div>
 		<div class="max-w-7xl mx-auto flex items-center justify-between relative z-10">
 
@@ -28,10 +28,15 @@
 				</div>
 			</div>
 			<div class="flex items-center gap-4">
-				<button class="p-2 hover:bg-white/10 rounded-full">
+				<button @click="toggleDarkMode" class="p-2 hover:bg-white/10 rounded-full">
+					<span v-if="isDarkMode">🌙</span>
+					<span v-else>☀️</span>
 				</button>
-				<button class="p-2 hover:bg-white/10 rounded-full">
-				</button>
+				<select @change="switchLocale($event.target.value)" :value="locale"
+					class="p-2 bg-transparent ">
+					<option value="en">English</option>
+					<option value="am">Amharic</option>
+				</select>
 			</div>
 		</div>
 
