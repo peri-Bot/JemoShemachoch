@@ -1,3 +1,6 @@
+const defaultTheme = require('tailwindcss/defaultTheme') // Import default theme
+const colors = require('tailwindcss/colors')
+
 module.exports = {
 	darkMode: 'class',
 	content: [
@@ -8,7 +11,29 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				// Set 'Inter' as the default sans-serif font
+				sans: ['Inter', ...defaultTheme.fontFamily.sans],
+				// Set 'STIX Two Text' as the serif font
+				serif: ['"STIX Two Text"', ...defaultTheme.fontFamily.serif], // Quotes needed for multi-word names
+			},
 			colors: {
+				// Light Theme (Inspired by Zen)
+				'light-bg': '#F5F1E9', // Off-white/beige background
+				'light-text': '#383838', // Dark grey text
+				'light-text-secondary': '#6B7280', // Lighter grey text
+				'light-accent': '#fa963e', // Accent color (adjust as needed)
+				'light-card-bg': '#FFFFFF', // Card/Button background
+				'light-border': '#E5E7EB', // Border color
+
+				// Dark Theme (Inspired by Zen)
+				'dark-bg': '#1F1F1F',   // Dark background
+				'dark-text': '#EAEAEA', // Light grey text
+				'dark-text-secondary': '#9CA3AF', // Darker grey text
+				'dark-accent': '#fa963e', // Accent color (adjust as needed)
+				'dark-card-bg': '#2A2A2A', // Card/Button background
+				'dark-border': '#4B5563', // Border color
+
 				gruvbox: {
 					bg: '#282828',
 					bg0_h: '#1d2021',
@@ -28,8 +53,9 @@ module.exports = {
 					purple: '#d3869b',
 					aqua: '#8ec07c',
 					orange: '#fe8019',
+
 				}
 			}
 		}
 	}
-} 
+}
