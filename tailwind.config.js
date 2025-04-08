@@ -21,7 +21,7 @@ module.exports = {
 				// Light Theme (Inspired by Zen)
 				'light-bg': '#F5F1E9', // Off-white/beige background
 				'light-text': '#383838', // Dark grey text
-				'light-text-secondary': '#6B7280', // Lighter grey text
+				'light-text-secondary': '#6f4d30', // Lighter grey text
 				'light-accent': '#fa963e', // Accent color (adjust as needed)
 				'light-card-bg': '#FFFFFF', // Card/Button background
 				'light-border': '#E5E7EB', // Border color
@@ -29,7 +29,7 @@ module.exports = {
 				// Dark Theme (Inspired by Zen)
 				'dark-bg': '#1F1F1F',   // Dark background
 				'dark-text': '#EAEAEA', // Light grey text
-				'dark-text-secondary': '#9CA3AF', // Darker grey text
+				'dark-text-secondary': '#fbd298', // Darker grey text
 				'dark-accent': '#fa963e', // Accent color (adjust as needed)
 				'dark-card-bg': '#2A2A2A', // Card/Button background
 				'dark-border': '#4B5563', // Border color
