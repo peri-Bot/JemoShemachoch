@@ -1,121 +1,107 @@
 <template>
-	<!-- Navigation -->
-	<nav class="bg-[#121521] backdrop-blur-md px-6 py-4  sticky top-0 z-50">
-		<div class="nav-gradient"></div>
-		<div class="max-w-7xl mx-auto flex items-center justify-between relative z-10">
+	<header
+		class="sticky top-0 z-50  border-b border-light-border/50 dark:border-dark-border/50 bg-light-bg dark:bg-dark-bg transition-colors duration-300">
+		<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex items-center justify-between h-16">
+				<!-- Logo -->
+				<div class="flex-shrink-0">
+					<NuxtLink to="/" class="flex items-center gap-2">
+						<!-- Replace with your SVG or Image Logo -->
+						<svg class="h-8 w-auto text-light-accent dark:text-dark-accent"
+							viewBox="0 0 24 24" fill="currentColor">
+							<path
+								d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+						</svg>
+						<span class="font-semibold text-xl text-light-text dark:text-dark-text">{{
+							$t('companyName') }}</span>
+					</NuxtLink>
+				</div>
 
-			<a href="/" class="flex items-center gap-2">
-				<span class="font-semibold text-xl">Jemmo</span>
-			</a>
-			<div class="flex items-center gap-8">
-				<div class="hidden md:flex items-center gap-6">
-					<a href="#" class="nav-link group relative">
-						Projects
-						<div class="nav-highlight"></div>
-					</a>
-					<a href="#" class="nav-link group relative">
-						Services
-						<div class="nav-highlight"></div>
-					</a>
-					<a href="#" class="nav-link group relative">
-						Blog
-						<div class="nav-highlight"></div>
-					</a>
-					<a href="#" class="nav-link group relative">
-						About Us
-						<div class="nav-highlight"></div>
-					</a>
+				<!-- Desktop Menu -->
+				<div class="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
+					<NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+						class=" nav-link">
+						{{ $t(item.name) }}
+					</NuxtLink>
+				</div>
+
+				<!-- Right side controls -->
+				<div class="flex items-center gap-3 md:gap-4">
+					<LangSwitcher />
+					<ThemeSwitcher />
+					<!-- Mobile menu button -->
+					<div class="md:hidden">
+						<button @click="mobileMenuOpen = !mobileMenuOpen" type="button"
+							class="inline-flex items-center justify-center p-2 rounded-md text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-accent dark:focus:ring-dark-accent"
+							aria-controls="mobile-menu" aria-expanded="false">
+							<span class="sr-only">Open main menu</span>
+							<!-- Heroicon name: outline/menu -->
+							<svg v-if="!mobileMenuOpen" class="block h-6 w-6"
+								xmlns="http://www.w3.org/2000/svg" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor"
+								aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+							</svg>
+							<!-- Heroicon name: outline/x -->
+							<svg v-else class="block h-6 w-6"
+								xmlns="http://www.w3.org/2000/svg" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor"
+								aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+							</svg>
+						</button>
+					</div>
 				</div>
 			</div>
-			<div class="flex items-center gap-4">
-				<button @click="toggleDarkMode" class="p-2 hover:bg-white/10 rounded-full">
-					<span v-if="isDarkMode">🌙</span>
-					<span v-else>☀️</span>
-				</button>
-				<select @change="switchLocale($event.target.value)" :value="locale"
-					class="p-2 bg-transparent ">
-					<option value="en">English</option>
-					<option value="am">Amharic</option>
-				</select>
-			</div>
-		</div>
+		</nav>
 
-
-		<!-- Mobile menu -->
-		<div class="md:hidden" v-if="isOpen">
+		<!-- Mobile menu, show/hide based on menu state. -->
+		<div v-show="mobileMenuOpen" class="md:hidden border-t border-light-border dark:border-dark-border"
+			id="mobile-menu">
 			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-				<a href="#"
-					class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Shops</a>
-				<a href="#"
-					class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Projects</a>
-				<a href="#"
-					class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Enterprise</a>
-				<a href="#"
-					class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">About</a>
+				<NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+					@click="mobileMenuOpen = false" class="mobile-nav-link">
+					{{ $t(item.name) }}
+				</NuxtLink>
 			</div>
 		</div>
-	</nav>
-	<div class="flex">
-		<div class="flex-1 bg-gradient-to-tl from-gruvbox-aqua to-[#0e2332]  h-1"> </div>
-		<div class="flex-1 bg-gradient-to-tr from-gruvbox-aqua to-[#0e2332]  h-1"> </div>
-	</div>
+	</header>
 </template>
 
-<style>
-.nav-gradient {
-	position: absolute;
-	inset: 0;
-	background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-			rgba(0, 220, 130, 0.15) 0%,
-			rgba(0, 220, 130, 0) 50%);
-	opacity: 0;
-	transition: opacity 0.3s;
-	pointer-events: none;
-}
-
-nav:hover .nav-gradient {
-	opacity: 1;
-}
-
-.nav-link {
-	padding: 0.5rem;
-	transition: color 0.3s;
-}
-
-.nav-highlight {
-	position: absolute;
-	bottom: -2px;
-	left: 0;
-	right: 0;
-	height: 2px;
-	background: #00DC82;
-	transform: scaleX(0);
-	transition: transform 0.3s;
-}
-
-.nav-link:hover .nav-highlight {
-	transform: scaleX(1);
-}
-
-/* Add this script tag at the end of your app.vue file */
-</style>
-
 <script setup>
-const isOpen = ref(false)
-// Add this code to handle the gradient movement
-if (process.client) {
-	window.addEventListener('DOMContentLoaded', () => {
-		const nav = document.querySelector('nav')
-		const gradient = nav.querySelector('.nav-gradient')
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-		nav.addEventListener('mousemove', (e) => {
-			const rect = nav.getBoundingClientRect()
-			const x = ((e.clientX - rect.left) / rect.width) * 100
-			const y = ((e.clientY - rect.top) / rect.height) * 100
+const { t } = useI18n() // Optional: if you need t() in script
 
-			gradient.style.setProperty('--x', `${x}%`)
-			gradient.style.setProperty('--y', `${y}%`)
-		})
-	})
-}
+const mobileMenuOpen = ref(false)
+
+const navigation = [
+	{ name: 'nav.projects', href: '/projects' }, // Using i18n keys
+	{ name: 'nav.services', href: '/services' },
+	{ name: 'nav.blog', href: '/blog' },
+	{ name: 'nav.about', href: '/about' },
+]
 </script>
+
+<style lang="postcss">
+/* Simple Nav Link Styling */
+.nav-link {
+	@apply font-bold px-3 py-2 rounded-md text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors;
+}
+
+/* Active link styling (NuxtLink adds 'router-link-active' or 'router-link-exact-active') */
+.router-link-exact-active {
+	@apply font-bold text-light-accent dark:text-dark-accent bg-light-border dark:bg-dark-border;
+}
+
+.mobile-nav-link {
+	@apply font-bold block px-3 py-2 rounded-md text-base text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors;
+}
+
+.mobile-nav-link.router-link-exact-active {
+	@apply text-light-accent dark:text-dark-accent bg-light-border dark:bg-dark-border;
+}
+</style>
