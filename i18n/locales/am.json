@@ -1,0 +1,27 @@
+{
+  "companyName": "ጀሞ ህብረት ስራ",
+  "welcome": "እንኳን ወደ",
+  "tagline1": "የጠነከረ",
+  "tagline2": "ማህበረሰብ",
+  "heroSubtitle": "አባላቶቻችንን በህብረት እና በጋራ ሀብት እናጠናክራለን። የተሻለ ነገን በጋራ ለመገንባት ይቀላቀሉን።",
+  "ctaPrimary": "አባል ይሁኑ",
+  "ctaSecondary": "የበለጠ መረጃ",
+  "nav": {
+    "projects": "ፕሮጀክቶች",
+    "services": "አገልግሎቶች",
+    "blog": "ብሎግ",
+    "about": "ስለ እኛ"
+  },
+  "footer": {
+    "follow": "ይከታተሉን",
+    "getStarted": "ለመጀመር",
+    "resources": "ምንጮች",
+    "company": "ድርጅት",
+    "documentation": "ሰነዶች",
+    "membership": "የአባልነት መረጃ",
+    "news": "ዜና እና ዝመናዎች",
+    "contact": "ያግኙን",
+    "privacy": "የግላዊነት ፖሊሲ",
+    "madeWith": "በጀሞ ቡድን በፍቅር የተሰራ ❤️"
+  }
+}

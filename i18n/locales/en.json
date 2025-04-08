@@ -1,0 +1,27 @@
+{
+  "companyName": "Jemo Coop",
+  "welcome": "welcome to",
+  "tagline1": "a stronger",
+  "tagline2": "community",
+  "heroSubtitle": "Empowering our members through cooperation and shared resources. Join us in building a better future together.",
+  "ctaPrimary": "Become a Member",
+  "ctaSecondary": "Learn More",
+  "nav": {
+    "projects": "Projects",
+    "services": "Services",
+    "blog": "Blog",
+    "about": "About Us"
+  },
+  "footer": {
+    "follow": "Follow Us",
+    "getStarted": "Get Started",
+    "resources": "Resources",
+    "company": "Company",
+    "documentation": "Documentation",
+    "membership": "Membership Info",
+    "news": "News & Updates",
+    "contact": "Contact Us",
+    "privacy": "Privacy Policy",
+    "madeWith": "Made with ❤️ by the Jemo Team"
+  }
+}
