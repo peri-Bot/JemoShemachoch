@@ -1,6 +1,5 @@
 <template>
-	<header
-		class="sticky top-0 z-50  border-b border-light-border/50 dark:border-dark-border/50 bg-light-bg dark:bg-dark-bg transition-colors duration-300">
+	<header class="sticky top-0 z-50    bg-light-bg dark:bg-dark-bg transition-colors duration-300">
 		<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between h-16">
 				<!-- Logo -->
