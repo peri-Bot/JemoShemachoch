@@ -11,7 +11,7 @@
 							<path
 								d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
 						</svg>
-						<span class="font-semibold text-xl text-light-text dark:text-dark-text">{{
+						<span class="font-bold text-xl text-light-text dark:text-dark-text">{{
 							$t('companyName') }}</span>
 					</NuxtLink>
 				</div>
@@ -88,12 +88,12 @@ const navigation = [
 <style lang="postcss">
 /* Simple Nav Link Styling */
 .nav-link {
-	@apply font-bold px-3 py-2 rounded-md text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors;
+	@apply font-semibold px-3 py-2 rounded-md text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors;
 }
 
 /* Active link styling (NuxtLink adds 'router-link-active' or 'router-link-exact-active') */
 .router-link-exact-active {
-	@apply font-bold text-light-accent dark:text-dark-accent bg-light-border dark:bg-dark-border;
+	@apply font-bold text-light-accent dark:text-dark-accent;
 }
 
 .mobile-nav-link {
