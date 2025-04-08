@@ -1,0 +1,78 @@
+/* Define light/dark theme colors & the specific lamp accent variable */
+:root {
+  /* From your tailwind config */
+  --color-light-bg: #F5F1E9;
+  --color-light-text: #383838;
+  --color-light-text-secondary: #6B7280;
+  --color-light-accent: #83a598; /* Gruvbox Blue */
+  --color-light-border: #E5E7EB;
+  --color-light-card-bg: #FFFFFF;
+
+  --color-dark-bg: #1F1F1F;
+  --color-dark-text: #ebdbb2; /* Gruvbox fg */
+  --color-dark-text-secondary: #bdae93; /* Gruvbox fg3 */
+  --color-dark-accent: #83a598; /* Gruvbox Blue */
+  --color-dark-border: #504945; /* Gruvbox bg2 */
+  --color-dark-card-bg: #282828; /* Gruvbox bg0 */
+
+  /* Variable specifically for the lamp gradient */
+  --lamp-accent-color: var(--color-light-accent);
+}
+
+.dark {
+  /* Override lamp accent for dark mode */
+ --lamp-accent-color: var(--color-dark-accent);
+}
+
+/* Optional: Apply base theme colors to body */
+body {
+  background-color: var(--color-light-bg);
+  color: var(--color-light-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark body {
+   background-color: var(--color-dark-bg);
+   color: var(--color-dark-text);
+}
+
+/* --- Transition Styles --- */
+
+/* H1 Transition (Matches React example timings) */
+.fade-up-h1-enter-active {
+  transition: all 0.8s ease-in-out 0.3s; /* duration 800ms, delay 300ms */
+}
+.fade-up-h1-enter-from {
+  opacity: 0.5; /* Start with 50% opacity like example */
+  transform: translateY(100px); /* Start lower down */
+}
+.fade-up-h1-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Paragraph Transition (Staggered delay) */
+.fade-up-p-enter-active {
+  transition: all 0.8s ease-in-out 0.5s; /* duration 800ms, delay 500ms */
+}
+.fade-up-p-enter-from {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.fade-up-p-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CTA Transition (Staggered delay) */
+.fade-up-cta-enter-active {
+  transition: all 0.8s ease-in-out 0.7s; /* duration 800ms, delay 700ms */
+}
+.fade-up-cta-enter-from {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.fade-up-cta-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
