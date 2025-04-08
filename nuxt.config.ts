@@ -5,36 +5,46 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/i18n',
 		'@nuxtjs/tailwindcss',
-		'@nuxtjs/color-mode'
+		'@nuxtjs/color-mode',
+		'@nuxtjs/google-fonts',
+		'@vueuse/motion/nuxt'
 	],
 	components: [
 		'~/components/layout',
 	],
+
+	css: ['~/assets/css/main.css'],
+
 	i18n: {
-		locales: ['en', 'am'],
+		locales: [ // Ensure this array is correct
+			{ code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
+			{ code: 'am', iso: 'am-ET', name: 'አማርኛ', file: 'am.json' }
+		],
+		langDir: 'locales', // <-- CRITICAL: Make sure this points to your locales directory name
+		lazy: true,
 		defaultLocale: 'en',
-		strategy: 'prefix_except_default',
-		vueI18n: './i18n.config.ts'
+		strategy: 'prefix_except_default', // Or your preferred strategy
+		vueI18n: '~/JemoShemachoch/i18n.config.ts', // Use ~ alias we tried earlier
+		detectBrowserLanguage: {
+			useCookie: true,
+			cookieKey: 'i18n_redirected',
+			redirectOn: 'root',
+		}
 	},
 	colorMode: {
 		classSuffix: '',
-		preference: 'light',
-		fallback: 'light'
+		preference: 'system',
+		// fallback: 'light',
 	},
-	tailwindcss: {
-		config: {
-			content: [],
-			theme: {
-				extend: {
-					colors: {
-						gruvbox: {
-							dark_hard: '#1d2021',
-							dark0: '#282828',
-							// ... rest of gruvbox colors from user input
-						}
-					}
-				}
-			}
-		}
-	}
+	googleFonts: {
+		families: {
+			// Load Inter font with various weights
+			Inter: [400, 500, 600, 700],
+			// Load STIX Two Text (regular 400 weight is often enough for headings)
+			'STIX Two Text': [400, 700], // Added 700 for potential bold serif headings
+		},
+		display: 'swap', // Use fallback font while loading (good practice)
+		prefetch: true,  // Pre-fetch font data
+		preconnect: true, // Pre-connect to Google Fonts origin
+	},
 })
