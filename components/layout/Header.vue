@@ -1,5 +1,5 @@
 <template>
-	<header class="sticky top-0 z-50    bg-light-bg dark:bg-dark-bg transition-colors duration-300">
+	<header class="sticky top-0 z-50 bg-light-bg dark:bg-dark-bg transition-colors duration-300">
 		<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between h-16">
 				<!-- Logo -->
@@ -20,7 +20,7 @@
 				<!-- Desktop Menu -->
 				<div class="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
 					<NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
-						class=" nav-link">
+						class="nav-link">
 						{{ $t(item.name) }}
 					</NuxtLink>
 				</div>
@@ -31,25 +31,17 @@
 					<ThemeSwitcher />
 					<!-- Mobile menu button -->
 					<div class="md:hidden">
-						<button @click="mobileMenuOpen = !mobileMenuOpen" type="button"
+						<button @click="mobileMenuOpen = true" type="button"
 							class="inline-flex items-center justify-center p-2 rounded-md text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-accent dark:focus:ring-dark-accent"
-							aria-controls="mobile-menu" aria-expanded="false">
+							aria-controls="mobile-menu"
+							:aria-expanded="mobileMenuOpen.toString()">
 							<span class="sr-only">Open main menu</span>
-							<!-- Heroicon name: outline/menu -->
-							<svg v-if="!mobileMenuOpen" class="block h-6 w-6"
-								xmlns="http://www.w3.org/2000/svg" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor"
+							<!-- Hamburger Icon -->
+							<svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+								fill="none" viewBox="0 0 24 24" stroke="currentColor"
 								aria-hidden="true">
 								<path stroke-linecap="round" stroke-linejoin="round"
 									stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-							</svg>
-							<!-- Heroicon name: outline/x -->
-							<svg v-else class="block h-6 w-6"
-								xmlns="http://www.w3.org/2000/svg" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor"
-								aria-hidden="true">
-								<path stroke-linecap="round" stroke-linejoin="round"
-									stroke-width="2" d="M6 18L18 6M6 6l12 12" />
 							</svg>
 						</button>
 					</div>
@@ -57,14 +49,44 @@
 			</div>
 		</nav>
 
-		<!-- Mobile menu, show/hide based on menu state. -->
-		<div v-show="mobileMenuOpen" class="md:hidden border-t border-light-border dark:border-dark-border"
-			id="mobile-menu">
-			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-				<NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
-					@click="mobileMenuOpen = false" class="mobile-nav-link">
-					{{ $t(item.name) }}
-				</NuxtLink>
+		<!-- Mobile menu -->
+		<!-- Overlay -->
+		<div v-show="mobileMenuOpen" @click="mobileMenuOpen = false"
+			class="fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ease-in-out"
+			:class="mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'"></div>
+
+		<!-- Panel -->
+		<div id="mobile-menu"
+			class="fixed inset-y-0 right-0 z-40 w-full max-w-xs sm:max-w-sm md:w-80 transform bg-light-bg dark:bg-dark-bg shadow-xl transition-transform duration-300 ease-in-out flex flex-col"
+			:class="mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'">
+
+			<!-- Menu Header -->
+			<div
+				class="flex items-center justify-between h-16 px-4 sm:px-6 border-b border-light-border dark:border-dark-border flex-shrink-0">
+				<h2 class="text-lg font-bold text-light-text dark:text-dark-text">Menu</h2>
+				<button @click="mobileMenuOpen = false" type="button"
+					class="inline-flex items-center justify-center p-2 rounded-md text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-accent dark:focus:ring-dark-accent">
+					<span class="sr-only">Close menu</span>
+					<!-- Close Icon -->
+					<svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+						viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+
+			<!-- Menu Content -->
+			<div class="flex-grow overflow-y-auto p-4 sm:p-6 space-y-6">
+				<!-- Original Navigation Section -->
+				<div class="space-y-2">
+					<!-- Use the existing navigation array -->
+					<NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+						@click="mobileMenuOpen = false" class="mobile-nav-link-styled">
+						{{ $t(item.name) }}
+					</NuxtLink>
+				</div>
+
 			</div>
 		</div>
 	</header>
@@ -78,8 +100,9 @@ const { t } = useI18n() // Optional: if you need t() in script
 
 const mobileMenuOpen = ref(false)
 
+// Kept the original navigation array
 const navigation = [
-	{ name: 'nav.projects', href: '/projects' }, // Using i18n keys
+	{ name: 'nav.projects', href: '/projects' },
 	{ name: 'nav.services', href: '/services' },
 	{ name: 'nav.blog', href: '/blog' },
 	{ name: 'nav.about', href: '/about' },
@@ -87,21 +110,40 @@ const navigation = [
 </script>
 
 <style lang="postcss">
-/* Simple Nav Link Styling */
+/* Simple Nav Link Styling (Desktop) */
 .nav-link {
 	@apply font-semibold px-3 py-2 rounded-md text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors;
 }
 
-/* Active link styling (NuxtLink adds 'router-link-active' or 'router-link-exact-active') */
-.router-link-exact-active {
-	@apply font-bold text-light-text-secondary dark:text-dark-text-secondary;
+.nav-link.router-link-exact-active {
+	@apply font-bold text-light-text dark:text-dark-text;
+	/* Slightly stronger active state */
 }
 
+/* Mobile Menu Styles */
+.menu-section-title {
+	@apply text-xs font-semibold uppercase tracking-wider text-light-text-secondary dark:text-dark-text-secondary mb-2 px-3;
+	/* Adjusted style like image */
+}
+
+/* Styling for the links within the new mobile menu */
+.mobile-nav-link-styled {
+	@apply block px-3 py-1.5 rounded-md text-base font-normal text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors duration-150;
+}
+
+/* Active link styling for the new mobile menu */
+.mobile-nav-link-styled.router-link-exact-active {
+	@apply font-semibold text-light-accent dark:text-dark-accent bg-light-border/50 dark:bg-dark-border/50;
+	/* Subtle active background */
+}
+
+/* Deprecated mobile-nav-link class (can be removed if not used elsewhere) */
+/*
 .mobile-nav-link {
 	@apply font-bold block px-3 py-2 rounded-md text-base text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors;
 }
-
 .mobile-nav-link.router-link-exact-active {
 	@apply text-light-accent dark:text-dark-accent bg-light-border dark:bg-dark-border;
 }
+*/
 </style>
