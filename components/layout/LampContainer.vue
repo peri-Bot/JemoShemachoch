@@ -44,7 +44,7 @@ const cssVars = computed(() => ({
 		<!-- Glow Area Container: Holds pseudo-element -->
 		<!-- Scale-y can be adjusted or removed for lamp effect -->
 		<div
-			class="relative flex w-full flex-1 scale-y-100 items-center justify-center isolate z-0 pointer-events-none">
+			class="relative flex w-full flex-1 scale-y-96 items-center justify-center isolate z-0 pointer-events-none">
 			<!-- The ::after pseudo-element defined in <style> creates the lamp glow -->
 
 			<!-- The Visible Line -->
