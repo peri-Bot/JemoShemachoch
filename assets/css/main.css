@@ -1,23 +1,49 @@
-/* Define light/dark theme colors & the specific lamp accent variable */
-:root {
-  /* From your tailwind config */
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@theme {
+
+  /* Light Theme Colors */
   --color-light-bg: #F5F1E9;
   --color-light-text: #383838;
-  --color-light-text-secondary: #6B7280;
-  --color-light-accent: #83a598; /* Gruvbox Blue */
-  --color-light-border: #E5E7EB;
+  --color-light-text-secondary: #6f4d30;
+  --color-light-accent: #fa963e;
   --color-light-card-bg: #FFFFFF;
+  --color-light-border: #edd2a3;
 
+  /* Dark Theme Colors */
   --color-dark-bg: #1F1F1F;
-  --color-dark-text: #ebdbb2; /* Gruvbox fg */
-  --color-dark-text-secondary: #bdae93; /* Gruvbox fg3 */
-  --color-dark-accent: #83a598; /* Gruvbox Blue */
-  --color-dark-border: #504945; /* Gruvbox bg2 */
-  --color-dark-card-bg: #282828; /* Gruvbox bg0 */
+  --color-dark-text: #EAEAEA;
+  --color-dark-text-secondary: #fbd298;
+  --color-dark-accent: #fa963e; /* Same accent */
+  --color-dark-card-bg: #2A2A2A;
+  --color-dark-border: #edd2a3; /* Same border */
 
-  /* Variable specifically for the lamp gradient */
-  --lamp-accent-color: var(--color-light-accent);
+  /* Gruvbox Palette */
+  --color-gruvbox-bg: #282828;
+  --color-gruvbox-bg0_h: #1d2021;
+  --color-gruvbox-bg0: #282828;
+  --color-gruvbox-bg1: #3c3836;
+  --color-gruvbox-bg2: #504945;
+  --color-gruvbox-bg3: #665c54;
+  --color-gruvbox-fg: #ebdbb2;
+  --color-gruvbox-fg0: #fbf1c7;
+  --color-gruvbox-fg1: #ebdbb2;
+  --color-gruvbox-fg2: #d5c4a1;
+  --color-gruvbox-fg3: #bdae93;
+  --color-gruvbox-red: #fb4934;
+  --color-gruvbox-green: #b8bb26;
+  --color-gruvbox-yellow: #fabd2f;
+  --color-gruvbox-blue: #83a598;
+  --color-gruvbox-purple: #d3869b;
+  --color-gruvbox-aqua: #8ec07c;
+  --color-gruvbox-orange: #fe8019;
+
+  /* Add other theme customizations here if needed (e.g., easing, custom breakpoints) */
+  /* --ease-custom: cubic-bezier(0.2, 0, 0, 1); */
 }
+
 
 .dark {
   /* Override lamp accent for dark mode */
