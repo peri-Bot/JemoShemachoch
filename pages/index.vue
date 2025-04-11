@@ -18,16 +18,16 @@
 				<!-- H1 - Welcome (From side + Unblur) -->
 				<h1 v-motion :initial="{ opacity: 0, x: -50, filter: 'blur(8px)' }"
 					:enter="{ opacity: 1, x: 0, filter: 'blur(0px)', transition: { delay: 300, duration: 800, ease: 'easeOut' } }"
-					class="text-4xl font-serif font-light tracking-tight sm:text-5xl lg:text-6xl text-light-text-secondary dark:text-dark-text-secondary">
+					class="text-4xl font-[Junicode] font-light tracking-tight sm:text-5xl lg:text-6xl text-light-text-secondary dark:text-dark-text-secondary">
 					{{ $t('welcome') }}
 				</h1>
 
 				<!-- H2 - Tagline (From bottom + Unblur) -->
 				<h2 v-motion :initial="{ opacity: 0, y: 50, filter: 'blur(8px)' }"
 					:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 500, duration: 800, ease: 'easeOut' } }"
-					class="mt-2 text-5xl font-serif font-bold tracking-tight sm:text-6xl lg:text-7xl text-light-text dark:text-dark-text">
+					class="mt-2 text-5xl font-[Junicode] italic   tracking-tight sm:text-6xl lg:text-7xl text-light-accent dark:text-dark-accent">
 					{{ $t('tagline1') }} <span
-						class="italic text-light-accent dark:text-dark-accent">{{
+						class="not-italic text-light-text-secondary dark:text-dark-text-secondary">{{
 							$t('tagline2') }}</span>
 				</h2>
 
