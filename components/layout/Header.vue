@@ -20,7 +20,7 @@
 				<!-- Desktop Menu -->
 				<div class="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
 					<NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
-						class="nav-link">
+						class="nav-link font-semibold px-3 py-2 rounded-md text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-[#383838] hover:bg-light-border dark:hover:bg-dark-border transition-colors">
 						{{ $t(item.name) }}
 					</NuxtLink>
 				</div>
@@ -82,7 +82,8 @@
 				<div class="space-y-2">
 					<!-- Use the existing navigation array -->
 					<NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
-						@click="mobileMenuOpen = false" class="mobile-nav-link-styled">
+						@click="mobileMenuOpen = false"
+						class="mobile-nav-link-styled text-xs font-semibold uppercase tracking-wider text-light-text-secondary dark:text-dark-text-secondary mb-2 px-3">
 						{{ $t(item.name) }}
 					</NuxtLink>
 				</div>
@@ -90,6 +91,7 @@
 			</div>
 		</div>
 	</header>
+
 </template>
 
 <script setup>
@@ -109,41 +111,4 @@ const navigation = [
 ]
 </script>
 
-<style lang="postcss">
-/* Simple Nav Link Styling (Desktop) */
-.nav-link {
-	@apply font-semibold px-3 py-2 rounded-md text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors;
-}
-
-.nav-link.router-link-exact-active {
-	@apply font-bold text-light-text dark:text-dark-text;
-	/* Slightly stronger active state */
-}
-
-/* Mobile Menu Styles */
-.menu-section-title {
-	@apply text-xs font-semibold uppercase tracking-wider text-light-text-secondary dark:text-dark-text-secondary mb-2 px-3;
-	/* Adjusted style like image */
-}
-
-/* Styling for the links within the new mobile menu */
-.mobile-nav-link-styled {
-	@apply block px-3 py-1.5 rounded-md text-base font-normal text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors duration-150;
-}
-
-/* Active link styling for the new mobile menu */
-.mobile-nav-link-styled.router-link-exact-active {
-	@apply font-semibold text-light-accent dark:text-dark-accent bg-light-border/50 dark:bg-dark-border/50;
-	/* Subtle active background */
-}
-
-/* Deprecated mobile-nav-link class (can be removed if not used elsewhere) */
-/*
-.mobile-nav-link {
-	@apply font-bold block px-3 py-2 rounded-md text-base text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors;
-}
-.mobile-nav-link.router-link-exact-active {
-	@apply text-light-accent dark:text-dark-accent bg-light-border dark:bg-dark-border;
-}
-*/
-</style>
+<style></style>
