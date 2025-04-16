@@ -1,11 +1,11 @@
 <template>
 	<div>
-		<!-- LampContainer with individual animation -->
+		<!-- LampContainer with individual animation (Initial Load) -->
 		<LampContainer v-motion :initial="{ opacity: 0, y: -50, filter: 'blur(10px)' }"
 			:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 100, duration: 900, ease: 'easeOut' } }"
 			lineWidth="55%" glowHeight="30px" />
 
-		<!-- Hero Section - Removed overall animation from section -->
+		<!-- Hero Section - Individual elements animate on Initial Load -->
 		<section class="py-20 md:py-32 text-center relative overflow-hidden">
 			<!-- Gradient Overlay -->
 			<div
@@ -15,30 +15,30 @@
 			<!-- Content container -->
 			<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-				<!-- H1 - Welcome (From side + Unblur) -->
+				<!-- H1 - Welcome (Initial Load) -->
 				<h1 v-motion :initial="{ opacity: 0, x: -50, filter: 'blur(8px)' }"
 					:enter="{ opacity: 1, x: 0, filter: 'blur(0px)', transition: { delay: 300, duration: 800, ease: 'easeOut' } }"
-					class="text-4xl font-[Junicode] font-light tracking-tight sm:text-5xl lg:text-6xl text-light-text-secondary dark:text-dark-text-secondary">
+					class="text-6xl font-[Junicode] font-light tracking-tight sm:text-4xl lg:text-8xl text-light-text-secondary dark:text-dark-text-secondary">
 					{{ $t('welcome') }}
 				</h1>
 
-				<!-- H2 - Tagline (From bottom + Unblur) -->
+				<!-- H2 - Tagline (Initial Load) -->
 				<h2 v-motion :initial="{ opacity: 0, y: 50, filter: 'blur(8px)' }"
 					:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 500, duration: 800, ease: 'easeOut' } }"
-					class="mt-2 text-5xl font-[Junicode] italic   tracking-tight sm:text-6xl lg:text-7xl text-light-accent dark:text-dark-accent">
+					class="mt-2 text-6xl font-[Junicode] italic font-light  tracking-tight sm:text-4xl lg:text-8xl text-light-accent dark:text-dark-accent">
 					{{ $t('tagline1') }} <span
 						class="not-italic text-light-text-secondary dark:text-dark-text-secondary">{{
 							$t('tagline2') }}</span>
 				</h2>
 
-				<!-- Paragraph - Subtitle (From bottom + Unblur) -->
+				<!-- Paragraph - Subtitle (Initial Load) -->
 				<p v-motion :initial="{ opacity: 0, y: 50, filter: 'blur(5px)' }"
 					:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 700, duration: 800, ease: 'easeOut' } }"
 					class="mt-6 max-w-2xl mx-auto text-lg text-light-text-secondary dark:text-dark-text-secondary">
 					{{ $t('heroSubtitle') }}
 				</p>
 
-				<!-- Buttons Div (From bottom + Unblur) -->
+				<!-- Buttons Div (Initial Load) -->
 				<div v-motion :initial="{ opacity: 0, y: 50, filter: 'blur(5px)' }"
 					:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 900, duration: 800, ease: 'easeOut' } }"
 					class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -53,39 +53,56 @@
 				</div>
 			</div>
 
-			<!-- Optional: Visual Element (Keeping its original simple animation for now) -->
+			<!-- Optional: Visual Element (Initial Load) -->
 			<div v-motion :initial="{ opacity: 0, y: 50 }"
 				:enter="{ opacity: 1, y: 0, transition: { delay: 1100, duration: 800, ease: 'easeOut' } }"
-				class="mt-16 md:mt-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+				class="mt-16 md:mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 				<div
 					class="aspect-video bg-light-border dark:bg-dark-border rounded-lg shadow-xl flex items-center justify-center text-light-text-secondary dark:text-dark-text-secondary">
 					<p>(Placeholder for Website Feature Image/Video)</p>
 				</div>
 			</div>
+
 		</section>
 
-		<!-- ... Other Sections ... -->
-		<section class="py-16 md:py-24 bg-light-card-bg dark:bg-dark-card-bg">
+		<!-- Services Section - Animate on Scroll -->
+		<section class="py-16 md:py-24 bg-light-card-bg dark:bg-dark-card-bg overflow-hidden">
+			<!-- Added overflow-hidden -->
 			<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-				<h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+				<!-- Section Title - Animate on Scroll -->
+				<h2 v-motion :initial="{ opacity: 0, y: 50 }"
+					:visible-once="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
+					class="text-3xl font-bold text-center mb-12 text-light-text dark:text-dark-text">
+					Our Services
+				</h2>
 				<div class="grid md:grid-cols-2 gap-12 items-center">
-					<div>
-						<h3 class="text-xl font-semibold mb-2">Consumer Goods</h3>
+					<!-- Left Column (Text Content) - Animate on Scroll -->
+					<div v-motion :initial="{ opacity: 0, x: -50 }"
+						:visible-once="{ opacity: 1, x: 0, transition: { duration: 700, ease: 'easeOut', delay: 200 } }">
+						<h3
+							class="text-xl font-semibold mb-2 text-light-text dark:text-dark-text">
+							Consumer Goods</h3>
 						<p class="text-light-text-secondary dark:text-dark-text-secondary mb-6">
 							Access to essential goods at fair prices through our
 							cooperative
 							shops.</p>
-						<h3 class="text-xl font-semibold mb-2">Savings & Credit</h3>
+						<h3
+							class="text-xl font-semibold mb-2 text-light-text dark:text-dark-text">
+							Savings & Credit</h3>
 						<p class="text-light-text-secondary dark:text-dark-text-secondary mb-6">
 							Opportunities for members to save and access credit
 							facilities.
 						</p>
-						<h3 class="text-xl font-semibold mb-2">Community Projects</h3>
+						<h3
+							class="text-xl font-semibold mb-2 text-light-text dark:text-dark-text">
+							Community Projects</h3>
 						<p class="text-light-text-secondary dark:text-dark-text-secondary">
 							Initiatives aimed at improving the local community
 							infrastructure and well-being.</p>
 					</div>
-					<div
+					<!-- Right Column (Placeholder Image) - Animate on Scroll -->
+					<div v-motion :initial="{ opacity: 0, x: 50 }"
+						:visible-once="{ opacity: 1, x: 0, transition: { duration: 700, ease: 'easeOut', delay: 400 } }"
 						class="aspect-video bg-light-border dark:bg-dark-border rounded-lg shadow-lg flex items-center justify-center text-light-text-secondary dark:text-dark-text-secondary">
 						<p>(Placeholder for Service Image/Illustration)</p>
 					</div>
@@ -93,21 +110,17 @@
 			</div>
 		</section>
 
+		<!-- Add similar :visible-once animations to other sections below the fold -->
+
 	</div>
 </template>
 
 <script setup>
-import { ref } from 'vue'; // Import ref
+import { ref } from 'vue'; // Import ref (already present)
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
-// Reactive variable to hold the current glow height value (in pixels)
-// Default value 480px (equivalent to 30rem if 1rem = 16px)
-// No longer needed here if LampContainer manages its own state or props define it
-// const currentGlowHeight = ref(480);
-
-// Metadata (optional)
-// useHead({ ... })
+// No changes needed in the script setup section for this animation logic
 </script>
 
 <style scoped>
