@@ -51,10 +51,10 @@
 							leave-from-class="transform opacity-100 scale-100"
 							leave-to-class="transform opacity-0 scale-95">
 							<div v-if="hoveredMenu === item.name && item.children && item.children.length > 0"
-								class="absolute left-0 mt-2 w-70 origin-top-left rounded-md shadow-lg z-50 bg-light-card-bg dark:bg-dark-card-bg ring-1 ring-black ring-opacity-5 focus:outline-none py-1 border border-light-border dark:border-dark-border">
+								class="absolute left-0 mt-2 w-75 origin-top-left rounded-md shadow-lg z-50 bg-light-card-bg dark:bg-dark-card-bg ring-1 ring-black ring-opacity-5 focus:outline-none py-1 border border-light-border dark:border-dark-border">
 								<NuxtLink v-for="subItem in item.children"
 									:key="subItem.name" :to="subItem.href"
-									class="block px-4 py-2 font-semibold text-base text-light-text dark:text-dark-text hover:bg-light-border dark:hover:bg-dark-border transition-colors duration-150">
+									class="block px-4 py-2 font-semibold text-base text-light-text-secondary dark:text-dark-text-secondary hover:bg-light-border dark:hover:bg-dark-border transition-colors duration-150">
 									<Icon name="i-lucide-file-text"
 										class="size-5 " />
 									<span class="px-2">{{
@@ -160,18 +160,18 @@ const hoveredMenu = ref(null) // Track which menu is currently hovered
 // Updated navigation array with children for Projects and Services
 const navigation = [
 	{
-		name: 'Consumer Co-ops',
+		name: 'nav.consumer co-ops.consumer co-ops',
 		href: '/consumer-coops', // Main link (can be '#' if it shouldn't navigate directly)
 		children: [
 			// Add your specific project sub-items here
 			// Ensure you have corresponding entries in your i18n files
-			{ name: 'What is Consumer Co-op', href: '/consumer-coops/info' },
-			{ name: 'Mission and Vision', href: 'consumer-coops/mission-vision' },
-			{ name: 'Businesses and Activities', href: 'consumer-coops/businesses-activities' },
+			{ name: 'nav.consumer co-ops.info', href: '/consumer-coops/info' },
+			{ name: 'nav.consumer co-ops.mission and vision', href: 'consumer-coops/mission-vision' },
+			{ name: 'nav.consumer co-ops.businesses and activities', href: 'consumer-coops/businesses-activities' },
 		]
 	},
 	{
-		name: 'Services',
+		name: 'nav.services',
 		href: '/services', // Main link
 		children: [
 			// Add your specific service sub-items here
@@ -182,7 +182,7 @@ const navigation = [
 			{ name: 'nav.services.support', href: '/services/support' },
 		]
 	},
-	{ name: 'nav.blog', href: '/blog' },
+	{ name: 'nav.news', href: '/news' },
 	{ name: 'nav.about', href: '/about' },
 ];
 
@@ -216,20 +216,4 @@ onUnmounted(() => {
 
 </script>
 
-<style scoped>
-/* Optional: Add specific styles if needed, but Tailwind should handle most */
-
-/* Ensure the hover state persists on the main link when hovering the dropdown */
-.relative:hover .nav-link {
-	/* You might already have these styles via Tailwind hover: classes */
-	/* Example: */
-	/* background-color: theme('colors.light.border'); */
-	/* color: theme('colors.light.text'); */
-}
-
-.dark .relative:hover .nav-link {
-	/* Example: */
-	/* background-color: theme('colors.dark.border'); */
-	/* color: theme('colors.dark.text'); */
-}
-</style>
+<style scoped></style>
