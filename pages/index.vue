@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div :class="['transition-opacity duration-300 ease-in', isMounted ? 'opacity-100' : 'opacity-0']">
 		<!-- LampContainer with individual animation (Initial Load) -->
 		<LampContainer v-motion :initial="{ opacity: 0, y: -50, filter: 'blur(10px)' }"
 			:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 100, duration: 900, ease: 'easeOut' } }"
