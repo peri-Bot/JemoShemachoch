@@ -1,11 +1,16 @@
 <template>
+	<!-- Main container that handles initial visibility on client mount -->
 	<div :class="['transition-opacity duration-300 ease-in', isMounted ? 'opacity-100' : 'opacity-0']">
-		<!-- LampContainer with individual animation (Initial Load) -->
+
+		<!-- LampContainer with individual animation -->
+		<!-- No change needed here IF LampContainer handles its own visibility -->
+		<!-- OR wrap it too if it flashes -->
 		<LampContainer v-motion :initial="{ opacity: 0, y: -50, filter: 'blur(10px)' }"
 			:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 100, duration: 900, ease: 'easeOut' } }"
 			lineWidth="55%" glowHeight="30px" />
 
-		<!-- Hero Section - Individual elements animate on Initial Load -->
+		<!-- Hero Section -->
+		<!-- Keep existing v-motion directives on individual elements -->
 		<section class="py-20 md:py-32 text-center relative overflow-hidden">
 			<!-- Gradient Overlay -->
 			<div
@@ -15,14 +20,14 @@
 			<!-- Content container -->
 			<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-				<!-- H1 - Welcome (Initial Load) -->
+				<!-- H1 - Welcome (Keep initial/enter) -->
 				<h1 v-motion :initial="{ opacity: 0, x: -50, filter: 'blur(8px)' }"
 					:enter="{ opacity: 1, x: 0, filter: 'blur(0px)', transition: { delay: 300, duration: 800, ease: 'easeOut' } }"
 					class="text-6xl font-[Junicode] font-light tracking-tight sm:text-4xl lg:text-8xl text-light-text-secondary dark:text-dark-text-secondary">
 					{{ $t('welcome') }}
 				</h1>
 
-				<!-- H2 - Tagline (Initial Load) -->
+				<!-- H2 - Tagline (Keep initial/enter) -->
 				<h2 v-motion :initial="{ opacity: 0, y: 50, filter: 'blur(8px)' }"
 					:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 500, duration: 800, ease: 'easeOut' } }"
 					class="mt-2 text-6xl font-[Junicode] italic font-light  tracking-tight sm:text-4xl lg:text-8xl text-light-accent dark:text-dark-accent">
@@ -31,14 +36,14 @@
 							$t('tagline2') }}</span>
 				</h2>
 
-				<!-- Paragraph - Subtitle (Initial Load) -->
+				<!-- Paragraph - Subtitle (Keep initial/enter) -->
 				<p v-motion :initial="{ opacity: 0, y: 50, filter: 'blur(5px)' }"
 					:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 700, duration: 800, ease: 'easeOut' } }"
 					class="mt-6 max-w-2xl mx-auto text-lg text-light-text-secondary dark:text-dark-text-secondary">
 					{{ $t('heroSubtitle') }}
 				</p>
 
-				<!-- Buttons Div (Initial Load) -->
+				<!-- Buttons Div (Keep initial/enter) -->
 				<div v-motion :initial="{ opacity: 0, y: 50, filter: 'blur(5px)' }"
 					:enter="{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { delay: 900, duration: 800, ease: 'easeOut' } }"
 					class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -53,7 +58,7 @@
 				</div>
 			</div>
 
-			<!-- Optional: Visual Element (Initial Load) -->
+			<!-- Optional: Visual Element (Keep initial/enter) -->
 			<div v-motion :initial="{ opacity: 0, y: 50 }"
 				:enter="{ opacity: 1, y: 0, transition: { delay: 1100, duration: 800, ease: 'easeOut' } }"
 				class="mt-16 md:mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -65,18 +70,15 @@
 
 		</section>
 
-		<!-- Services Section - Animate on Scroll -->
+		<!-- Services Section - Keep scroll animations -->
 		<section class="py-16 md:py-24 bg-light-card-bg dark:bg-dark-card-bg overflow-hidden">
-			<!-- Added overflow-hidden -->
 			<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-				<!-- Section Title - Animate on Scroll -->
 				<h2 v-motion :initial="{ opacity: 0, y: 50 }"
 					:visible-once="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
 					class="text-3xl font-bold text-center mb-12 text-light-text dark:text-dark-text">
 					Our Services
 				</h2>
 				<div class="grid md:grid-cols-2 gap-12 items-center">
-					<!-- Left Column (Text Content) - Animate on Scroll -->
 					<div v-motion :initial="{ opacity: 0, x: -50 }"
 						:visible-once="{ opacity: 1, x: 0, transition: { duration: 700, ease: 'easeOut', delay: 200 } }">
 						<h3
@@ -100,7 +102,6 @@
 							Initiatives aimed at improving the local community
 							infrastructure and well-being.</p>
 					</div>
-					<!-- Right Column (Placeholder Image) - Animate on Scroll -->
 					<div v-motion :initial="{ opacity: 0, x: 50 }"
 						:visible-once="{ opacity: 1, x: 0, transition: { duration: 700, ease: 'easeOut', delay: 400 } }"
 						class="aspect-video bg-light-border dark:bg-dark-border rounded-lg shadow-lg flex items-center justify-center text-light-text-secondary dark:text-dark-text-secondary">
@@ -110,22 +111,46 @@
 			</div>
 		</section>
 
-		<!-- Add similar :visible-once animations to other sections below the fold -->
+		<!-- ... Other Sections ... -->
 
-	</div>
+	</div> <!-- End of main visibility container -->
 </template>
 
 <script setup>
-import { ref } from 'vue'; // Import ref (already present)
+import { ref, onMounted } from 'vue'; // Import onMounted
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
-// No changes needed in the script setup section for this animation logic
+// Flag to track if the component has mounted on the client
+const isMounted = ref(false);
+
+// Set the flag to true after the component mounts client-side
+onMounted(() => {
+	isMounted.value = true;
+});
+
+// Metadata (optional)
+// useHead({ ... })
 </script>
 
 <style scoped>
 /* Keep existing styles */
 /* ... */
+
+/* Add styles for the initial hiding/fading logic if needed */
+/* Tailwind handles this with opacity classes, but you could add more specific styles here */
+
+/* Example: ensure the container takes up space even when invisible */
+/* Usually not needed with opacity, but good for visibility: hidden */
+/*
+.opacity-0 {
+   visibility: hidden;
+}
+.opacity-100 {
+   visibility: visible;
+}
+*/
+
 
 /* Style the range slider track/thumb if desired (optional) */
 input[type=range]::-webkit-slider-thumb {
