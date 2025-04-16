@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 @theme {
+	--font-sans: "Inter", sans-serif;
 
   /* Light Theme Colors */
   --color-light-bg: #F5F1E9;
