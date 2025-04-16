@@ -7,9 +7,14 @@
   "ctaPrimary": "Become a Member",
   "ctaSecondary": "Learn More",
   "nav": {
-    "projects": "Projects",
+    "consumer co-ops": {
+			"consumer co-ops": "Consumer Co-ops",
+			"info": "What is Consumer Co-ops",
+			"mission and vision": "Mission and Vision",
+			"businesses and activities": "Businesses and Activities",
+		},
     "services": "Services",
-    "blog": "Blog",
+    "news": "News",
     "about": "About Us"
   },
   "footer": {

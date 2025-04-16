@@ -2,12 +2,17 @@
   "companyName": "ጀሞ ህብረት ስራ",
   "welcome": "እንኳን ወደ",
   "tagline1": "የጠነከረ",
-  "tagline2": "ማህበረሰብ",
+  "tagline2": "ማህበረሰብ መጡ",
   "heroSubtitle": "አባላቶቻችንን በህብረት እና በጋራ ሀብት እናጠናክራለን። የተሻለ ነገን በጋራ ለመገንባት ይቀላቀሉን።",
   "ctaPrimary": "አባል ይሁኑ",
   "ctaSecondary": "የበለጠ መረጃ",
   "nav": {
-    "projects": "ፕሮጀክቶች",
+    "consumer co-ops": {
+			"consumer co-ops": "የሸማቾች የጋራ ማህበረሰብ",
+			"info": "የሸማቾች የጋራ ማህበረሰብ ምንድን ነው?",
+			"mission and vision": "ተልዕኮ እና ራዕይ",
+			"businesses and activities": "ንግዶች እና እንቅስቃሴዎች",
+		},
     "services": "አገልግሎቶች",
     "blog": "ብሎግ",
     "about": "ስለ እኛ"
