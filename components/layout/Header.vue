@@ -166,8 +166,8 @@ const navigation = [
 			// Add your specific project sub-items here
 			// Ensure you have corresponding entries in your i18n files
 			{ name: 'nav.consumer co-ops.info', href: '/consumer-coops/info' },
-			{ name: 'nav.consumer co-ops.mission and vision', href: 'consumer-coops/mission-vision' },
-			{ name: 'nav.consumer co-ops.businesses and activities', href: 'consumer-coops/businesses-activities' },
+			{ name: 'nav.consumer co-ops.mission and vision', href: '/consumer-coops/mission-vision' },
+			{ name: 'nav.consumer co-ops.businesses and activities', href: '/consumer-coops/businesses-activities' },
 		]
 	},
 	{
