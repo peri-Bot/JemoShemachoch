@@ -1,32 +1,108 @@
 {
-  "companyName": "Jemo Coop",
-  "welcome": "welcome to",
-  "tagline1": "a stronger",
-  "tagline2": "community",
-  "heroSubtitle": "Empowering our members through cooperation and shared resources. Join us in building a better future together.",
-  "ctaPrimary": "Become a Member",
-  "ctaSecondary": "Learn More",
-  "nav": {
-    "consumer co-ops": {
-			"consumer co-ops": "Consumer Co-ops",
-			"info": "What is Consumer Co-ops",
+	"companyName": "Jemmo Coop",
+	"welcome": "welcome to",
+	"tagline1": "a stronger",
+	"tagline2": "community",
+	"heroSubtitle": "Empowering our members through cooperation and shared resources. Join us in building a better future together.",
+	"ctaPrimary": "Become a Member",
+	"ctaSecondary": "Learn More",
+	"nav": {
+		"consumer co-ops": {
+			"consumer co-ops": "Consumer Co-op",
+			"info": "What is a Consumer Co-op?", // Changed for clarity
 			"mission and vision": "Mission and Vision",
-			"businesses and activities": "Businesses and Activities",
+			"businesses and activities": "Businesses and Activities"
 		},
-    "services": "Services",
-    "news": "News",
-    "about": "About Us"
-  },
-  "footer": {
-    "follow": "Follow Us",
-    "getStarted": "Get Started",
-    "resources": "Resources",
-    "company": "Company",
-    "documentation": "Documentation",
-    "membership": "Membership Info",
-    "news": "News & Updates",
-    "contact": "Contact Us",
-    "privacy": "Privacy Policy",
-    "madeWith": "Made with ❤️ by the Jemo Team"
-  }
+		"services": "Our Services",
+		"news": "News",
+		"about": "About Us"
+	},
+	"footer": {
+		"description": "Jemmo Cooperative: Working together to provide essential services and build a stronger community for our members.",
+		"quickLinks": "Quick Links",
+		"connect": "Connect",
+		"coopInfo": "About Cooperatives",
+		"membership": "Membership",
+		"contact": "Contact Us",
+		"privacy": "Privacy Policy",
+		"terms": "Terms of Service",
+		"copyright": "© {year} {companyName}. All rights reserved."
+	},
+	"about": {
+		"title": "About Jemmo Cooperative Society",
+		"historyTitle": "Our History",
+		"historyP1": "Jemmo Multi-purpose Consumers' Cooperative Society was formally organized on September 17, 2000, by 180 founding members from 53 housing cooperatives, starting with an initial capital of ETB 39,304.19.",
+		"historyP2": "It gained full legal entity status on January 27, 2002, and is registered under proclamation No. 147/1998, exempting it from certain taxes to support its socio-economic services.",
+		"growthTitle": "Growth and Impact",
+		"growthP1": "Since its inception, the cooperative has grown significantly. By the time of our initial primary education proposal (around 2008), membership had increased to 588 individuals, and the capital reached ETB 3,096,289.29, demonstrating substantial progress and member trust.",
+		"locationTitle": "Our Location",
+		"locationP1": "Our main operations and proposed development sites are centered in the Alem Bank area of Kolfe Keraneo sub-city, Addis Ababa (Kebele 01/05, Ayer Tena). Key facilities like the cooperative office, flourmill, market center, and kindergarten are situated here.",
+		"focusTitle": "Our Focus and Rationale",
+		"focusP1": "Driven by the community's needs, particularly in the education sector which faced challenges like high student-teacher ratios and accessibility issues, Jemmo established its first Kindergarten in 2003.",
+		"focusP2": "This initiative saw remarkable success, with enrollment growing from 38 students in 2003 to 362 in 2008 (an 852% increase). This success paved the way for plans to expand into primary education, further serving our members' families.",
+		"structureTitle": "Our Structure",
+		"structureP1": "As a cooperative, Jemmo is fundamentally member-owned and controlled. Decisions and management are handled through dedicated executive and technical bodies, ensuring alignment with our members' interests and socio-economic goals."
+	},
+	"consumerCoops": {
+		"info": {
+			"title": "What is a Consumer Cooperative?",
+			"p1": "A cooperative is an autonomous association of persons united voluntarily to meet their common economic, social, and cultural needs and aspirations through a jointly-owned and democratically-controlled enterprise.",
+			"p2": "Consumer cooperatives, specifically, are owned by the people who buy goods or use the services of the cooperative. They aim to provide members with quality goods and services at reasonable prices or better terms than otherwise available.",
+			"p3": "Common examples include retail food stores (like ours!), housing cooperatives, utility cooperatives, and financial credit unions. The primary goal is always to serve the members, not to generate profit for external investors.",
+			"jemmoExampleTitle": "Jemmo as a Consumer Cooperative",
+			"jemmoExampleP1": "Jemmo Multi-purpose Consumers' Cooperative Society embodies these principles. Our core purpose is to address the basic socio-economic needs of our members through various businesses and activities, ensuring accessibility and fairness."
+		},
+		"missionVision": {
+			"title": "Our Mission & Vision",
+			"visionTitle": "Vision",
+			"visionText": "Jemmo Multi-purpose Consumers' Cooperative Society has envisioned to serve all members of the cooperative accessible basic socio-economic services and to realize member owned, member controlled, and principle led cooperative.",
+			"missionTitle": "Mission",
+			"missionPoint1": "Providing quality and relevant kindergarten and primary education.",
+			"missionPoint2": "Expanding its market center services.",
+			"missionPoint3": "Supplying food items such as cereals, pulses and other food items to members at reasonable prices.",
+			"missionPoint4": "Providing flourmill service to consumers/members.",
+			"missionPoint5": "Supplying consumer goods at its retail shop with reasonable price.",
+			"missionPoint6": "Establishing provision of hotel & recreation services; provision of parking services for vehicles.",
+			"missionPoint7": "Increasing members' role and participation in development activities; streamlining the management and organization of the cooperative.",
+			"missionPoint8": "Improving the collaboration and cooperation of the cooperative with other relevant communities, cooperatives, governmental organizations and NGOs."
+		},
+		"businesses": {
+			"title": "Our Businesses & Activities",
+			"intro": "To fulfill our mission and serve our members, Jemmo Cooperative engages in a variety of socio-economic activities:",
+			"retailTitle": "Consumer Goods Retail Shop",
+			"retailDesc": "We operate a retail shop providing essential consumer goods to our members and the community at fair and reasonable prices.",
+			"foodTitle": "Food Item Supply",
+			"foodDesc": "We purchase and supply essential food items like cereals and pulses, often directly from farmers' cooperatives, ensuring better prices for members by bypassing intermediaries.",
+			"flourmillTitle": "Flourmill Services",
+			"flourmillDesc": "Our flourmill provides crucial processing services for grains, accessible to both members and the wider community.",
+			"marketTitle": "Market Center Leasing",
+			"marketDesc": "We lease spaces within our market center, providing opportunities for members and local businesses.",
+			"educationTitle": "Education Services",
+			"educationDesc": "Recognizing community needs, we have successfully operated a Kindergarten since 2003 and have developed plans to expand into primary education to provide quality, accessible schooling.",
+			"parkingTitle": "Parking Services",
+			"parkingDesc": "We offer parking facilities for vehicles, adding convenience for those visiting our center or the surrounding area.",
+			"otherSupportTitle": "Member Support & Advocacy",
+			"otherSupportDesc": "Beyond direct services, we strive to protect the interests of our members, negotiate with government agencies, and foster collaboration to receive support and benefits."
+		}
+	},
+	"services": {
+		"title": "Our Services",
+		"intro": "Jemmo Cooperative is dedicated to providing essential services that empower our members and strengthen our community. Our key service areas include:",
+		"consumerGoods": {
+			"title": "Consumer Goods",
+			"desc": "Access to essential household goods and food items at fair prices through our cooperative retail shop and direct sourcing."
+		},
+		"savingsCredit": {
+			"title": "Savings & Credit",
+			"desc": "Opportunities for members to build savings and potentially access credit facilities (details available upon inquiry)."
+		},
+		"community": {
+			"title": "Community & Education",
+			"desc": "Initiatives aimed at improving community well-being, including providing quality kindergarten education and planning for primary school expansion."
+		}
+	},
+	"news": {
+		"title": "News & Updates",
+		"comingSoon": "Check back here for the latest news and announcements from Jemmo Cooperative."
+	}
 }
