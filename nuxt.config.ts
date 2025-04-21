@@ -27,11 +27,9 @@ export default defineNuxtConfig({
 			{ code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
 			{ code: 'am', iso: 'am-ET', name: 'አማርኛ', file: 'am.json' }
 		],
-		langDir: 'locales', // <-- CRITICAL: Make sure this points to your locales directory name
 		lazy: true,
 		defaultLocale: 'en',
-		strategy: 'prefix_except_default', // Or your preferred strategy
-		vueI18n: '~/JemoShemachoch/i18n.config.ts', // Use ~ alias we tried earlier
+		strategy: 'no_prefix',
 		detectBrowserLanguage: {
 			useCookie: true,
 			cookieKey: 'i18n_redirected',
